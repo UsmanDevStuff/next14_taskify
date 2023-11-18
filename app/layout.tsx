@@ -1,10 +1,12 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
 
-import { siteConfig } from '@/config/site'
+import { siteConfig } from "@/config/site";
 
-const inter = Inter({ subsets: ['latin'] })
+import NextTopLoader from "nextjs-toploader";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
@@ -15,19 +17,22 @@ export const metadata: Metadata = {
   icons: [
     {
       url: "/logo.svg",
-      href: "/logo.svg"
-    }
-  ]
-}
+      href: "/logo.svg",
+    },
+  ],
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <NextTopLoader />
+        {children}
+      </body>
     </html>
-  )
+  );
 }
